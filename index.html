@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Escape Game</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js"></script>
+</head>
+<body onload="ready()">
+    <p>Welcome to the game</p>
+    <div class="page" id="page-1">
+        <div class="rows" id="row-1"></div>
+        <div class="rows" id="row-2"><div class="columns"><img src="table.jpg" onclick="changePage(this.parentNode.parentNode.parentNode.id, 'tablePage')"></div></div>
+        <div class="rows" id="row-3"></div>
+        <div class="rows" id="row-4"></div>
+        <div class="rows" id="row-5"><div class="columns"><img src="knife.png" onclick="showPopUp(this.src, 1)"></div></div>
+        <div class="rows" id="row-6"></div>
+        <div class="rows" id="row-7"></div>
+        <div class="rows" id="row-8"></div>
+        <div class="rows" id="row-9"></div>
+        <div class="rows" id="row-10"></div>
+    </div>
+    <div class="page" id="tablePage"><img src="back.jpeg" id="back-button" onclick="changePage(this.parentNode.id, 'page-1')"/></div>
+    <div id="popup"><img/></div>
+    <div id="sideBar"><div id="hints"></div><div id="inventory"><table id="inventory-table"><tr><td id="inventory-1">&nbsp;</td><td id="inventory-2">&nbsp;</td><td id="inventory-3">&nbsp;</td></tr><tr><td id="inventory-4">&nbsp;</td><td id="inventory-5">&nbsp;</td><td id="inventory-6">&nbsp;</td></tr></table></div></div>
+</body>
+</html>
