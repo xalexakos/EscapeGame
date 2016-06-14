@@ -19,3 +19,16 @@ function showPopUp (src, num){
     setTimeout(function () {popUpElement.style.display = 'none';}, 2000);
 
 };
+
+function equipItem(imgElement){
+
+	if (imgElement.src != undefined)
+	{
+		document.getElementById("equipImg").src = imgElement.src;
+	}
+		
+};
+
+function unequip(){
+	document.getElementById("equipImg").src = '';
+};
