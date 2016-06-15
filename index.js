@@ -10,12 +10,13 @@ function changePage(hideId, showId) {
    hideElement.style.display= "none";
 };
 
-function showPopUp (src, num){
+function showPopUp (src, hideId, num){
 
     var popUpElement;
     popUpElement = document.getElementById("popup");
     popUpElement.childNodes[0].src = src;
     popUpElement.style.display = 'block';
     setTimeout(function () {popUpElement.style.display = 'none';}, 2000);
-
-};
+    hideElement = document.getElementById(hideId);
+    hideElement.style.display= "none";
+}
