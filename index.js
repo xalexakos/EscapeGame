@@ -60,3 +60,22 @@ function equipItem(imgElement){
 function unequip(){
 	document.getElementById("equipImg").src = '';
 };
+
+function validateLogin(){
+
+    var loginUsername, loginPassword, loginForm;
+
+    loginUsername = document.getElementById("loginUsername").value;
+    loginPassword = document.getElementById("loginPassword").value;
+    loginForm = document.getElementById("loginForm");
+
+    alert(loginUsername);
+
+    if (loginUsername == "username" && loginPassword == "text"){
+        loginForm.style.display = "none";
+    }
+    else{
+        alert('Incorrect Credentials!');
+    }
+
+};
