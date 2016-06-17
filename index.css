@@ -27,12 +27,17 @@ body {
 }
 
 #hints {
-    height: 80%;
+    height: 65%;
     width: 100%;
 }
 
 #inventory {
     height: 20%;
+    width: 100%;
+}
+
+#equip {
+    height: 15%;
     width: 100%;
 }
 
@@ -76,4 +81,20 @@ img#back-button {
     margin-top: 200px;
     display: none;
 
+}
+
+#equip-table{
+	text-align:center;
+	width:34%;
+	float:right;
+}
+
+#equip-title, #equip-title td{
+	height: 33%;
+	border: 0px;
+	vertical-align:bottom;
+}
+
+#equip-tr, #equip-tr td{
+	height: 66%;
 }
