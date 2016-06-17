@@ -7,26 +7,34 @@
     <script src="index.js"></script>
 </head>
 <body onload="ready()">
-    <p>Welcome to the game</p>
-    <div class="page" id="page-1">
-        <div class="rows" id="row-1"></div>
-        <div class="rows" id="row-2"><div class="columns"><img src="table.jpg" onclick="changePage(this.parentNode.parentNode.parentNode.id, 'tablePage')"></div></div>
-        <div class="rows" id="row-3"></div>
-        <div class="rows" id="row-4"></div>
-        <div class="rows" id="row-5"><div class="columns"><img src="knife.png" onclick="showPopUp(this.src, 1)"></div></div>
-        <div class="rows" id="row-6"></div>
-        <div class="rows" id="row-7"></div>
-        <div class="rows" id="row-8"></div>
-        <div class="rows" id="row-9"></div>
-        <div class="rows" id="row-10"></div>
-    </div>
-    <div class="page" id="tablePage"><img src="back.jpeg" id="back-button" onclick="changePage(this.parentNode.id, 'page-1')"/></div>
-    <div id="popup"><img/></div>
-    <div id="sideBar">
+	<div id="panel">
+	<div id="main">
+		<div id="support">
+			<div class="page" id="support-1">
+			</div>
+			<div class="page" id="support-2">
+			</div>
+		</div>
+		<div class="page page-1" id="page-1">
+			<div class="rows" id="row-1"></div>
+			<div class="rows" id="row-2"><div class="columns"><img src="table.jpg" onclick="changePage(this.parentNode.parentNode.parentNode.id, 'tablePage')"></div></div>
+			<div class="rows" id="row-3"></div>
+			<div class="rows" id="row-4"></div>
+			<div class="rows" id="row-5"><div class="columns"><img src="knife.png" onclick="showPopUp(this.src, 1)"></div></div>
+			<div class="rows" id="row-6"></div>
+			<div class="rows" id="row-7"></div>
+			<div class="rows" id="row-8"></div>
+			<div class="rows" id="row-9"></div>
+			<div class="rows" id="row-10"></div>
+		</div>
+		<div class="page tablePage" id="tablePage"><img src="back.jpeg" id="back-button" onclick="changePage(this.parentNode.id, 'page-1')"/></div>
+		<div id="popup"><img/></div>
+	</div>
+	<div id="sideBar">
 		<div id="hints"></div>
 		<div id="equip"><table id="equip-table"><tr id="equip-title"><td>HAND</td></tr><tr  id="equip-tr"><td><img id="equipImg" onclick="unequip()"/></td></tr></table></div>
-		<div id="inventory"><table id="inventory-table"><tr><td id="inventory-1"><img src="knife.png" onclick="equipItem(this)"/></td><td id="inventory-2"><img onclick="equipItem(this)"/></td><td id="inventory-3"><img onclick="equipItem(this)"/></td></tr><tr><td id="inventory-4"><img onclick="equipItem(this)"/></td><td id="inventory-5"><img onclick="equipItem(this)"/></td><td id="inventory-6"><img onclick="equipItem(this)"/></td></tr></table></div>
-		
+		<div id="inventory"><table id="inventory-table"><tr><td id="inventory-1"><img src="knife.png" onclick="equipItem(this)"/></td><td id="inventory-2"><img onclick="equipItem(this)"/></td><td id="inventory-3"><img onclick="equipItem(this)"/></td></tr><tr><td id="inventory-4"><img onclick="equipItem(this)"/></td><td id="inventory-5"><img onclick="equipItem(this)"/></td><td id="inventory-6"><img onclick="equipItem(this)"/></td></tr></table></div>	
 	</div>
+	</div>	
 </body>
 </html>
