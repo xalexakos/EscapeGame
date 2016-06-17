@@ -108,7 +108,7 @@ img {
        display: block;
        }
 
-img#back-button {
+img.back-button {
     display: absolute;
     width: 30px;
     height: 30px;
@@ -142,4 +142,13 @@ img#back-button {
 
 #equip-tr, #equip-tr td{
 	height: 66%;
+}
+
+#loginForm {
+    margin-top: 25%;
+    margin-left: 25%;
+}
+
+.loginPage {
+    background-color: green;
 }
