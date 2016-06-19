@@ -27,11 +27,16 @@ function changePage(hideId, showId) {
    }, 2000);
 };
 
-function showPopUp (src, num){
-    var popUpElement;
+function showPopUp (src, inventoryID){
+
+    var popUpElement, inventoryElement;
+
+    inventoryID.style.display = "none";
+
     popUpElement = document.getElementById("popup");
     popUpElement.childNodes[0].src = src;
     popUpElement.style.display = 'block';
+    inventoryElement = document.getElementById("knife");
 	setTimeout(function () {
 		popUpElement.style.marginTop = "200px";
 		popUpElement.style.marginLeft = "200px";
@@ -44,8 +49,8 @@ function showPopUp (src, num){
 		popUpElement.style.height = "0px";
 		popUpElement.style.marginLeft = "400px";
 		popUpElement.style.marginTop = "350px";
+		inventoryElement.style.display = "block";
 	}, 2000);
-
 };
 
 function equipItem(imgElement){
@@ -61,21 +66,17 @@ function unequip(){
 	document.getElementById("equipImg").src = '';
 };
 
-function validateLogin(){
+function validateLogin(form) {
 
-    var loginUsername, loginPassword, loginForm;
+    var showPage;
 
-    loginUsername = document.getElementById("loginUsername").value;
-    loginPassword = document.getElementById("loginPassword").value;
-    loginForm = document.getElementById("loginForm");
-
-    alert(loginUsername);
-
-    if (loginUsername == "username" && loginPassword == "text"){
-        loginForm.style.display = "none";
+    if(form.userID.value == "son" && form.password.value == "cem")
+    {
+        alert("Successful Login");
+        form.style.display = "none";
     }
-    else{
-        alert('Incorrect Credentials!');
+    else
+    {
+        alert("Error Password or Username");
     }
-
 };
