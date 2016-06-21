@@ -79,6 +79,10 @@ div{
     width: 100%;
 }
 
+#knife {
+    display: none;
+}
+
 #equip {
     height: 15%;
     width: 100%;
@@ -147,6 +151,7 @@ img.back-button {
 #loginForm {
     margin-top: 25%;
     margin-left: 25%;
+    display: block;
 }
 
 .loginPage {
