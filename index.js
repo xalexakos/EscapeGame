@@ -1,4 +1,5 @@
 clickCount = 1;
+equip = 0;
 
 function ready() {
     document.getElementById("page-1").style.display = "block";
@@ -27,16 +28,14 @@ function changePage(hideId, showId) {
    }, 2000);
 };
 
-function showPopUp (src, inventoryID){
+function getScrewDriver (){
 
     var popUpElement, inventoryElement;
 
-    inventoryID.style.display = "none";
-
     popUpElement = document.getElementById("popup");
-    popUpElement.childNodes[0].src = src;
+    popUpElement.childNodes[0].src = "images/screwdriver.png";
     popUpElement.style.display = 'block';
-    inventoryElement = document.getElementById("knife");
+    inventoryElement = document.getElementById("screwdriver");
 	setTimeout(function () {
 		popUpElement.style.marginTop = "200px";
 		popUpElement.style.marginLeft = "200px";
@@ -51,14 +50,16 @@ function showPopUp (src, inventoryID){
 		popUpElement.style.marginTop = "350px";
 		inventoryElement.style.display = "block";
 	}, 2000);
+	document.getElementById("chair").style.cursor = "default";
 };
 
-function equipItem(imgElement){
+function equipItem(imgElement, num){
 
 	if (imgElement.src != undefined)
 	{
 		document.getElementById("equipImg").src = imgElement.src;
 		document.getElementById("equipImg").style.display = 'block';
+		equip = num;
 	}
 		
 };
@@ -66,6 +67,7 @@ function equipItem(imgElement){
 function unequip(){
 	document.getElementById("equipImg").style.display = 'none';
 	document.getElementById("equipImg").src = '';
+	equip = 0;
 };
 
 function validateLogin(form) {
@@ -103,3 +105,24 @@ function nextText(){
 	}
 	
 };
+
+function changeChairImage(img) {
+	img.src = 'images/armchair_broken.png';
+	img.onclick = function() {
+		getScrewDriver(img.src, 2);
+	}
+};
+
+function changeVentilatorImage (img) {
+	if (equip == 1){
+		img.src = 'images/ventilator_opened.png';
+		img.onclick = function() {
+			document.getElementById("chair").childNodes[0].onclick = null;
+			unequip();
+			changePage("page-1", "clue-1");
+			
+		};
+		
+	};
+	
+}
