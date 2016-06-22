@@ -119,14 +119,24 @@ function changeChairImage(img) {
 	}
 };
 
+function changeChestImage(img) {
+	if (equip == 2){
+		img.src = 'images/open_chest.png';
+		unequip();
+		img.onclick = function() {
+			document.getElementById("chest").childNodes[0].onclick = null;
+			changePage("page-1", "clue-1");
+		};
+	}
+};
+
 function changeVentilatorImage (img) {
 	if (equip == 1){
 		img.src = 'images/ventilator_opened.png';
+		unequip();
 		img.onclick = function() {
 			document.getElementById("chair").childNodes[0].onclick = null;
-			unequip();
 			changePage("page-1", "clue-1");
-			
 		};
 		
 	};
@@ -233,16 +243,7 @@ function checkcolors(){
 		document.getElementById("keyimage").style.display="block";
 		document.getElementById("checkButton").onclick=null;
 		document.getElementById("checkButton").style.cursor = "default";
-		tableDiv = document.getElementById("table");
-		document.getElementById("table").childNodes[0].src = "images/table_with_pc.png";
-		tableDiv.childNodes[0].onclick = function() {
-			changePage("page-1", "pcPage");
-		};
 	}
-};
-
-function showKey(){
-	
 };
 
 function takeKey(){
@@ -268,5 +269,9 @@ function takeKey(){
 		inventoryElement.style.display = "block";
 	}, 2000);
 	document.getElementById("keyimage").style.display = "none";
-
+		tableDiv = document.getElementById("table");
+		document.getElementById("table").childNodes[0].src = "images/table_with_pc.png";
+		tableDiv.childNodes[0].onclick = function() {
+		changePage("page-1", "loginPage");
+	};
 };
