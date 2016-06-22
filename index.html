@@ -18,11 +18,12 @@
 		</div>
 		<div class="page page-1" id="page-1">
 			<div id="ventilator"><img src="images/ventilator_closed.png" onclick="changeVentilatorImage(this)"/></div>
-			<div id="table"><img src="images/table_with_pc.png" onclick="changePage(this.parentNode.parentNode.id, 'drawerPage')">"></div>
+			<div id="table"><img src="images/table.png" onclick="changePage(this.parentNode.parentNode.id, 'drawerPage')">"></div>
 			<div id="chair"><img src="images/armchair.png" onclick="changeChairImage(this)"></div>
 		</div>
 		<div class="page tablePage" id="tablePage"><img src="back.jpeg" class="back-button" onclick="changePage(this.parentNode.id, 'page-1')"/></div>
-		<div class="page drawerPage" id="drawerPage"><img src="back.jpeg" class="back-button" onclick="changePage(this.parentNode.id, 'page-1')"/><div id="allColorBoxes"><div id="colorBox1"></div><div id="colorBox2"></div><div id="colorBox3"></div><div id="colorBox4"></div></div></div>
+		<div class="page drawerPage" id="drawerPage"><img src="back.jpeg" class="back-button" onclick="changePage(this.parentNode.id, 'page-1')"/><div id="keydiv"><img src="images/key.png" id="keyimage" onclick="takeKey()" /></div><div id="allColorBoxes"><div id="colorBox1" onclick="colorSelector(this)"></div><div id="colorBox2" onclick="colorSelector(this)"></div><div id="colorBox3" onclick="colorSelector(this)"></div><div id="colorBox4" onclick="colorSelector(this)"></div><div id="checkButton" onclick="checkcolors()"></div></div></div>
+		<div class="page pcPage" id="pcPage"></div>
 		<div class="page loginPage" id="loginPage">
             <img src="back.jpeg" class="back-button" onclick="changePage(this.parentNode.id, 'page-1')"/>
             <form name="loginForm" id="loginForm">
@@ -37,7 +38,7 @@
 	<div id="sideBar">
 		<div id="hints"><div id="scenario"><p id="p1">You wake up in this room</p><p id="p2">Where am I? What is this room?</p><p id="p3">The door is locked. Who did this?</p><p id="p4">I have to escape</p></div><img id="nextArrow" src="back.jpeg" class="back-button" onclick="nextText()"/></div>
 		<div id="equip"><table id="equip-table"><tr id="equip-title"><td>HAND</td></tr><tr  id="equip-tr"><td><img id="equipImg" onclick="unequip()"/></td></tr></table></div>
-		<div id="inventory"><table id="inventory-table"><tr><td id="inventory-1"><img src="images/screwdriver.png" id="screwdriver" onclick="equipItem(this, 1)"/></td><td id="inventory-2"><img onclick="equipItem(this)"/></td><td id="inventory-3"><img onclick="equipItem(this)"/></td></tr><tr><td id="inventory-4"><img onclick="equipItem(this)"/></td><td id="inventory-5"><img onclick="equipItem(this)"/></td><td id="inventory-6"><img onclick="equipItem(this)"/></td></tr></table></div>
+		<div id="inventory"><table id="inventory-table"><tr><td id="inventory-1"><img src="images/screwdriver.png" id="screwdriver" onclick="equipItem(this, 1)"/></td><td id="inventory-2"><img src="images/key.png" id="key" onclick="equipItem(this, 2)"/></td><td id="inventory-3"><img onclick="equipItem(this)"/></td></tr><tr><td id="inventory-4"><img onclick="equipItem(this)"/></td><td id="inventory-5"><img onclick="equipItem(this)"/></td><td id="inventory-6"><img onclick="equipItem(this)"/></td></tr></table></div>
 	</div>
 	</div>	
 </body>
