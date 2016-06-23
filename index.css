@@ -1,5 +1,5 @@
 body {
-	background-image : url("bg.jpg");
+	background-image : url("images/bg.jpg");
 }
 
 a:link {
@@ -12,15 +12,6 @@ a:link {
 }
 
 div{
-	-webkit-transition: 2s; /* For Safari 3.1 to 6.0 */
-	transition: 2s;
-}
-
-.page {
-    display: none;
-    width: 100%;
-    height: 100%;
-    float: left;
 	-webkit-transition: 2s; /* For Safari 3.1 to 6.0 */
 	transition: 2s;
 }
@@ -48,12 +39,21 @@ div{
     width: 50%;
 }
 
+.page {
+    display: none;
+    width: 100%;
+    height: 100%;
+    float: left;
+	-webkit-transition: 2s; /* For Safari 3.1 to 6.0 */
+	transition: 2s;
+}
+
 .page-1{
 	background-size: 100% 100%;
 	background-image: url("images/domatio001.jpg");
 }
 
-.clue-1 {
+.clue-1, .clue-2, .clue-3, .clue-4 {
 	background-color: red;
 }
 
@@ -65,6 +65,18 @@ div{
 .drawerPage{
 	background-image: url("images/drawer.png");
 	background-size: 100% 100%;
+}
+
+.loginPage {
+	background-size: 100% 100%;
+	background-image: url("images/laptop001.jpg");
+    background-color: green;
+}
+
+.bookcasePage {
+    background-image: url("images/bookcase.png");
+    background-size: 100% 100%;
+    background-color: white;
 }
 
 #sideBar {
@@ -162,12 +174,6 @@ img.back-button {
     display: block;
 }
 
-.loginPage {
-	background-size: 100% 100%;
-	background-image: url("images/laptop001.jpg");
-    background-color: green;
-}
-
 #nextArrow {
     -webkit-transform: rotate(180deg);
     transform: rotate(180deg);
@@ -180,7 +186,7 @@ img.back-button {
 	font-size: 24px;
 }
 
-#p2, #p3, #p4 {
+.text {
 	display: none;
 }
 
@@ -194,6 +200,14 @@ img.back-button {
     opacity: 0.7;
 	z-index: 800;
 	background-color: white;
+}
+
+#fishTank {
+    height: 70px;
+    width: 70px;
+    margin-top: 39%;
+    margin-left: 80%;
+    cursor: pointer;
 }
 
 #ventilator {
@@ -240,12 +254,13 @@ img.back-button {
 	cursor:pointer;
 }
 
-#colors-clue {
+.colors-clue {
 	margin-top: 40%;
 	margin-left: 40%;
 	font-size: 25px;
 	font-weight: bold;
 }
+
 #keydiv{
 	margin-top : 240px;
 	margin-left : 365px;
@@ -321,7 +336,7 @@ img.back-button {
 input#userID, input#password{
     width: 35%;
     box-sizing: border-box;
-	 border: 2px solid #ccc;
+	border: 2px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
     background-color: white;

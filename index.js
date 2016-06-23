@@ -4,34 +4,50 @@ box1 = 1;
 box2 = 2;
 box3 = 3;
 box4 = 4;
+activeText = "";
 
 function ready() {
     document.getElementById("page-1").style.display = "block";
 };
 
-function changePage(hideId, showId) {
-   var hideElement, showElement,supportElemnt,support1Elemnt,support2Elemnt;
-   hideElement = document.getElementById(hideId);
-   showElement = document.getElementById(showId);
-   supportElemnt = document.getElementById("support");
-   support1Elemnt = document.getElementById("support-1");
-   support2Elemnt = document.getElementById("support-2");
-   support1Elemnt.style.display="inline";
-   support2Elemnt.style.display="inline";
-   support1Elemnt.innerHTML= hideElement.innerHTML;
-   support2Elemnt.innerHTML= showElement.innerHTML;
-   support1Elemnt.className= hideElement.className;
-   support2Elemnt.className= showElement.className;
-   supportElemnt.style.display = "block";
-   hideElement.style.display="none";
-   supportElemnt.style.marginLeft = -support1Elemnt.offsetWidth+"px";
-   setTimeout(function () {
-		showElement.style.display = "block";
-		supportElemnt.style.display = "none";
-		supportElemnt.style.marginLeft = "0px";
-		support1Elemnt.innerHTML= '';
-		support2Elemnt.innerHTML= '';
-   }, 2000);
+function setText (textID){
+
+    var hideText, showText;
+
+    hideText = document.getElementById(activeText);
+    showText = document.getElementById(textID);
+    hideText.style.display = "none";
+    showText.style.display = "inline";
+    activeText = showText.id;
+};
+
+function changePage(hideId, showId, text = 'None') {
+    var hideElement, showElement,supportElemnt,support1Elemnt,support2Elemnt;
+
+    hideElement = document.getElementById(hideId);
+    showElement = document.getElementById(showId);
+    supportElemnt = document.getElementById("support");
+    support1Elemnt = document.getElementById("support-1");
+    support2Elemnt = document.getElementById("support-2");
+    support1Elemnt.style.display="inline";
+    support2Elemnt.style.display="inline";
+    support1Elemnt.innerHTML= hideElement.innerHTML;
+    support2Elemnt.innerHTML= showElement.innerHTML;
+    support1Elemnt.className= hideElement.className;
+    support2Elemnt.className= showElement.className;
+    supportElemnt.style.display = "block";
+    hideElement.style.display="none";
+    supportElemnt.style.marginLeft = -support1Elemnt.offsetWidth+"px";
+    setTimeout(function () {
+        if (text != 'None'){
+            setText(text);
+        };
+        showElement.style.display = "block";
+        supportElemnt.style.display = "none";
+        supportElemnt.style.marginLeft = "0px";
+        support1Elemnt.innerHTML= '';
+        support2Elemnt.innerHTML= '';
+    }, 2000);
 };
 
 function getScrewDriver (){
@@ -43,10 +59,11 @@ function getScrewDriver (){
     popUpElement.style.display = 'block';
     inventoryElement = document.getElementById("screwdriver");
 	setTimeout(function () {
-		popUpElement.style.marginTop = "200px";
+	    popUpElement.style.marginTop = "200px";
 		popUpElement.style.marginLeft = "200px";
 		popUpElement.style.width = "400px";
 		popUpElement.style.height = "300px";
+		setText('NoText');
 	}, 10);
     setTimeout(function () {
 		popUpElement.style.display = 'none';
@@ -57,6 +74,7 @@ function getScrewDriver (){
 		inventoryElement.style.display = "block";
 	}, 2000);
 	document.getElementById("chair").style.cursor = "default";
+
 };
 
 function equipItem(imgElement, num){
@@ -80,17 +98,16 @@ function validateLogin(form) {
 
     var showPage;
 
-    if(form.userID.value == "son" && form.password.value == "cem")
+    if(form.userID.value == "son" && form.password.value == "smart")
     {
         alert("Successful Login");
-        changePage("loginPage", "clue-1");
+        changePage("loginPage", "clue-4", "NoText");
     }
     else
     {
         alert("Error Password or Username");
     }
 };
-
 
 function nextText(){
 	var nextParagraph, currentParagraph, currentID, nextID;
@@ -105,6 +122,9 @@ function nextText(){
 	nextParagraph = document.getElementById(nextID);
 	currentParagraph.style.display = "none";
 	nextParagraph.style.display = "inline";
+
+	activeText = nextID;
+
 	if (clickCount==4){
 		document.getElementById("curtain").style.display="none";
 		document.getElementById("nextArrow").style.display="none";
@@ -115,6 +135,8 @@ function nextText(){
 function changeChairImage(img) {
 	img.src = 'images/armchair_broken.png';
 	img.onclick = function() {
+	    document.getElementById("chair").childNodes[0].onclick = null;
+	    document.getElementById("chair").childNodes[0].style.cursor = "default";
 		getScrewDriver(img.src, 2);
 	}
 };
@@ -124,8 +146,7 @@ function changeChestImage(img) {
 		img.src = 'images/open_chest.png';
 		unequip();
 		img.onclick = function() {
-			document.getElementById("chest").childNodes[0].onclick = null;
-			changePage("page-1", "clue-1");
+			changePage("page-1", "clue-3", "NoText");
 		};
 	}
 };
@@ -135,8 +156,7 @@ function changeVentilatorImage (img) {
 		img.src = 'images/ventilator_opened.png';
 		unequip();
 		img.onclick = function() {
-			document.getElementById("chair").childNodes[0].onclick = null;
-			changePage("page-1", "clue-1");
+			changePage("page-1", "clue-1", "NoText");
 		};
 		
 	};
@@ -148,14 +168,12 @@ function changeBookCaseImage (img) {
 		img.src = 'images/ventilator_opened.png';
 		unequip();
 		img.onclick = function() {
-			document.getElementById("chair").childNodes[0].onclick = null;
-			changePage("page-1", "clue-1");
+			changePage("page-1", "clue-1", "NoText");
 		};
 		
 	};
 	
 };
-
 
 function colorSelector(boxDiv){
 	if (boxDiv.id == "colorBox1" ) {
@@ -256,6 +274,10 @@ function checkcolors(){
 		document.getElementById("keyimage").style.display="block";
 		document.getElementById("checkButton").onclick=null;
 		document.getElementById("checkButton").style.cursor = "default";
+		setText('validColors');
+	}
+	else {
+	    setText('invalidColors');
 	}
 };
 
@@ -272,6 +294,7 @@ function takeKey(){
 		popUpElement.style.marginLeft = "200px";
 		popUpElement.style.width = "400px";
 		popUpElement.style.height = "300px";
+		setText('NoText');
 	}, 10);
     setTimeout(function () {
 		popUpElement.style.display = 'none';
@@ -282,9 +305,14 @@ function takeKey(){
 		inventoryElement.style.display = "block";
 	}, 2000);
 	document.getElementById("keyimage").style.display = "none";
-		tableDiv = document.getElementById("table");
-		document.getElementById("table").childNodes[0].src = "images/table_with_pc.png";
-		tableDiv.childNodes[0].onclick = function() {
-		changePage("page-1", "loginPage");
+	tableDiv = document.getElementById("table");
+	document.getElementById("table").childNodes[0].src = "images/table_with_pc.png";
+	document.getElementById("table").childNodes[0].onmouseover = null;
+	document.getElementById("table").childNodes[0].onmouseover = function() {
+        setText('tableWithPcText');
+	};
+	tableDiv.childNodes[0].onclick = null;
+	tableDiv.childNodes[0].onclick = function() {
+        changePage("page-1", "loginPage", "pcLoginText");
 	};
 };

@@ -8,39 +8,99 @@
 </head>
 <body onload="ready()">
 	<div id="panel">
-	<div id="curtain"></div>
-	<div id="main">
-		<div id="support">
-			<div class="page" id="support-1">
-			</div>
-			<div class="page" id="support-2">
-			</div>
-		</div>
-		<div class="page page-1" id="page-1">
-			<div id="ventilator"><img src="images/ventilator_closed.png" onclick="changeVentilatorImage(this)"/></div>
-			<div id="bookcase"><img src="images/bookcase.png" onclick="changePage('page-1', 'clue-1')"/></div>
-			<div id="chest"><img src="images/chest.png" onclick="changeChestImage(this)"/></div>
-			<div id="table"><img src="images/table_with_pc.png" onclick="changePage(this.parentNode.parentNode.id, 'drawerPage')">"></div>
-			<div id="chair"><img src="images/armchair.png" onclick="changeChairImage(this)"></div>
-		</div>
-		<div class="page tablePage" id="tablePage"><img src="back.jpeg" class="back-button" onclick="changePage(this.parentNode.id, 'page-1')"/></div>
-		<div class="page drawerPage" id="drawerPage"><img src="back.jpeg" class="back-button" onclick="changePage(this.parentNode.id, 'page-1')"/><div id="keydiv"><img src="images/key.png" id="keyimage" onclick="takeKey()" /></div><div id="allColorBoxes"><div id="colorBox1" onclick="colorSelector(this)"></div><div id="colorBox2" onclick="colorSelector(this)"></div><div id="colorBox3" onclick="colorSelector(this)"></div><div id="colorBox4" onclick="colorSelector(this)"></div><div id="checkButton" onclick="checkcolors()"></div></div></div>
-		<div class="page loginPage" id="loginPage">
-            <img src="back.jpeg" class="back-button" onclick="changePage(this.parentNode.id, 'page-1')"/>
-            <form name="loginForm" id="loginForm">
-				<br><input type="text" name="userID" id="userID"/><br>
-				<br><input type="password" name="password" id="password"/><br><br>
-				<input type="button" onclick="validateLogin(this.form)" value="Login" id="login"/>
-			</form>
+        <div id="curtain"></div>
+        <div id="main">
+            <div id="support">
+                <div class="page" id="support-1">
+                </div>
+                <div class="page" id="support-2">
+                </div>
+            </div>
+            <div class="page page-1" id="page-1">
+                <div id="ventilator"><img src="images/ventilator_closed.png" onclick="changeVentilatorImage(this)" onmouseover="setText('ventilatorText')" onmouseleave="setText('NoText')"/></div>
+                <div id="bookcase"><img src="images/bookcase.png" onclick="changePage('page-1', 'bookcasePage', 'fishTankText')" onmouseover="setText('bookcaseText')" onmouseleave="setText('NoText')"/></div>
+                <div id="chest"><img src="images/chest.png" onclick="changeChestImage(this)" onmouseover="setText('chestText')"/></div>
+                <div id="table"><img src="images/table_with_pc.png" onclick="changePage(this.parentNode.parentNode.id, 'drawerPage', 'colorLockText')" onmouseover="setText('tableText')" onmouseleave="setText('NoText')"/></div>
+                <div id="chair"><img src="images/armchair.png" onclick="changeChairImage(this)" onmouseover="setText('chairText')" onmouseleave="setText('NoText')"/></div>
+            </div>
+            <div class="page tablePage" id="tablePage"><img src="images/back.jpeg" class="back-button" onclick="changePage(this.parentNode.id, 'page-1', 'NoText')"/></div>
+            <div class="page drawerPage" id="drawerPage"><img src="images/back.jpeg" class="back-button" onclick="changePage(this.parentNode.id, 'page-1', 'NoText')"/>
+                <div id="keydiv"><img src="images/key.png" id="keyimage" onclick="takeKey()" /></div>
+                <div id="allColorBoxes"><div id="colorBox1" onclick="colorSelector(this)"></div>
+                    <div id="colorBox2" onclick="colorSelector(this)"></div>
+                    <div id="colorBox3" onclick="colorSelector(this)"></div>
+                    <div id="colorBox4" onclick="colorSelector(this)"></div>
+                    <div id="checkButton" onclick="checkcolors()"></div>
+                </div>
+            </div>
+            <div class="page loginPage" id="loginPage">
+                <img src="images/back.jpeg" class="back-button" onclick="changePage(this.parentNode.id, 'page-1', 'NoText')"/>
+                <form name="loginForm" id="loginForm">
+                    <br><input type="text" name="userID" id="userID"/><br>
+                    <br><input type="password" name="password" id="password"/><br><br>
+                    <input type="button" onclick="validateLogin(this.form)" value="Login" id="login"/>
+                </form>
+            </div>
+            <div class="page bookcasePage" id="bookcasePage">
+                <img src="images/back.jpeg" class="back-button" onclick="changePage(this.parentNode.id, 'page-1', 'NoText')"/>
+                <div id="fishTank" onclick="changePage('bookcasePage', 'clue-2', 'NoText')"></div>
+            </div>
+            <div class="page clue-1" id="clue-1"><img src="images/back.jpeg" class="back-button" onclick="changePage(this.parentNode.id, 'page-1', 'NoText')"/>
+                <div class="colors-clue"><a href="clues/BIG_DATA.htm" target="_blank">You found a clue!</a></div>
+            </div>
+            <div class="page clue-2" id="clue-2"><img src="images/back.jpeg" class="back-button" onclick="changePage(this.parentNode.id, 'page-1', 'NoText')"/>
+                <div class="colors-clue"><a href="clues/POTENTIAL_TECHNOLOGIES_FOR_5G.html" target="_blank">You found a clue!</a></div>
+            </div>
+            <div class="page clue-3" id="clue-3"><img src="images/back.jpeg" class="back-button" onclick="changePage(this.parentNode.id, 'page-1', 'NoText')"/>
+                <div class="colors-clue"><a href="clues/SELF_ORGANIZED.htm" target="_blank">You found a clue!</a></div>
+            </div>
+            <div class="page clue-4" id="clue-4"><img src="images/back.jpeg" class="back-button" onclick="changePage(this.parentNode.id, 'page-1', 'NoText')"/>
+                <div class="colors-clue"><a href="clues/TERMINODESs" target="_blank">You found a clue!</a></div>
+            </div>
+            <div id="popup"><img/></div>
         </div>
-		<div class="page clue-1" id="clue-1"><img src="back.jpeg" class="back-button" onclick="changePage(this.parentNode.id, 'page-1')"/><div id="colors-clue"><a href="clues/bigdataFramework.htm" target="_blank">You found a clue</a></div></div>
-        <div id="popup"><img/></div>
-	</div>
-	<div id="sideBar">
-		<div id="hints"><div id="scenario"><p id="p1">You wake up in this room</p><p id="p2">Where am I? What is this room?</p><p id="p3">The door is locked. Who did this?</p><p id="p4">I have to escape</p></div><img id="nextArrow" src="back.jpeg" class="back-button" onclick="nextText()"/></div>
-		<div id="equip"><table id="equip-table"><tr id="equip-title"><td>HAND</td></tr><tr  id="equip-tr"><td><img id="equipImg" onclick="unequip()"/></td></tr></table></div>
-		<div id="inventory"><table id="inventory-table"><tr><td id="inventory-1"><img src="images/screwdriver.png" id="screwdriver" onclick="equipItem(this, 1)"/></td><td id="inventory-2"><img src="images/key.png" id="key" onclick="equipItem(this, 2)"/></td><td id="inventory-3"><img onclick="equipItem(this)"/></td></tr><tr><td id="inventory-4"><img onclick="equipItem(this)"/></td><td id="inventory-5"><img onclick="equipItem(this)"/></td><td id="inventory-6"><img onclick="equipItem(this)"/></td></tr></table></div>
-	</div>
+        <div id="sideBar">
+            <div id="hints">
+                <div id="scenario">
+                    <p id="p1">You wake up in this room!</p>
+                    <p id="p2" class="text">Where am I? What is this room?</p>
+                    <p id="p3" class="text">The door is locked. Who did this?</p>
+                    <p id="p4" class="text">I have to escape.</p>
+                    <p id="ventilatorText" class="text">I could use a screwdriver in order to open this ventilator.</p>
+                    <p id="bookcaseText" class="text">I have to take a closer look to that bookcase.</p>
+                    <p id="chairText" class="text">There's something hiding inside this armchair.</p>
+                    <p id="chestText" class="text">I need a key to open that chest.</p>
+                    <p id="tableText" class="text">I have to take a closer look to that desk.</p>
+                    <p id="tableWithPcText" class="text">I need to take a look at this PC.</p>
+                    <p id="colorLockText" class="text">What a strange drawer. It seems like a color lock. What if I could find the correct combination?</p>
+                    <p id="fishTankText" class="text">There something inside the tank.</p>
+                    <p id="validColors" class="text">The combination is correct. A key!</p>
+                    <p id="invalidColors" class="text">The combination is not valid! I need to try again.</p>
+                    <p id="pcLoginText" class="text">A username and a password</p>
+                    <p id="NoText" class="text"></p>
+                </div>
+                <img id="nextArrow" src="images/back.jpeg" class="back-button" onclick="nextText()"/>
+            </div>
+            <div id="equip">
+                <table id="equip-table">
+                    <tr id="equip-title"><td>HAND</td></tr>
+                    <tr id="equip-tr"><td><img id="equipImg" onclick="unequip()"/></td></tr>
+                </table>
+            </div>
+            <div id="inventory">
+                <table id="inventory-table">
+                    <tr>
+                        <td id="inventory-1"><img src="images/screwdriver.png" id="screwdriver" onclick="equipItem(this, 1)"/></td>
+                        <td id="inventory-2"><img src="images/key.png" id="key" onclick="equipItem(this, 2)"/></td>
+                        <td id="inventory-3"><img onclick="equipItem(this)"/></td></tr>
+                    <tr>
+                        <td id="inventory-4"><img onclick="equipItem(this)"/></td>
+                        <td id="inventory-5"><img onclick="equipItem(this)"/></td>
+                        <td id="inventory-6"><img onclick="equipItem(this)"/></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
 	</div>	
 </body>
 </html>
