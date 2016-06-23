@@ -18,9 +18,9 @@
 		</div>
 		<div class="page page-1" id="page-1">
 			<div id="ventilator"><img src="images/ventilator_closed.png" onclick="changeVentilatorImage(this)"/></div>
-			<div id="bookcase"><img src="images/bookcase.png" onclick="changeVentilatorImage(this)"/></div>
+			<div id="bookcase"><img src="images/bookcase.png" onclick="changePage('page-1', 'clue-1')"/></div>
 			<div id="chest"><img src="images/chest.png" onclick="changeChestImage(this)"/></div>
-			<div id="table"><img src="images/table.png" onclick="changePage(this.parentNode.parentNode.id, 'drawerPage')">"></div>
+			<div id="table"><img src="images/table_with_pc.png" onclick="changePage(this.parentNode.parentNode.id, 'drawerPage')">"></div>
 			<div id="chair"><img src="images/armchair.png" onclick="changeChairImage(this)"></div>
 		</div>
 		<div class="page tablePage" id="tablePage"><img src="back.jpeg" class="back-button" onclick="changePage(this.parentNode.id, 'page-1')"/></div>
@@ -28,9 +28,9 @@
 		<div class="page loginPage" id="loginPage">
             <img src="back.jpeg" class="back-button" onclick="changePage(this.parentNode.id, 'page-1')"/>
             <form name="loginForm" id="loginForm">
-				<br><input type="text" name="userID"/><br>
-				<br><input type="password" name="password"/><br><br>
-				<input type="button" onclick="validateLogin(this.form)" value="Login"/>
+				<br><input type="text" name="userID" id="userID"/><br>
+				<br><input type="password" name="password" id="password"/><br><br>
+				<input type="button" onclick="validateLogin(this.form)" value="Login" id="login"/>
 			</form>
         </div>
 		<div class="page clue-1" id="clue-1"><img src="back.jpeg" class="back-button" onclick="changePage(this.parentNode.id, 'page-1')"/><div id="colors-clue"><a href="clues/bigdataFramework.htm" target="_blank">You found a clue</a></div></div>

@@ -83,7 +83,7 @@ function validateLogin(form) {
     if(form.userID.value == "son" && form.password.value == "cem")
     {
         alert("Successful Login");
-        form.style.display = "none";
+        changePage("loginPage", "clue-1");
     }
     else
     {
@@ -141,7 +141,20 @@ function changeVentilatorImage (img) {
 		
 	};
 	
-}
+};
+
+function changeBookCaseImage (img) {
+	if (equip == 1){
+		img.src = 'images/ventilator_opened.png';
+		unequip();
+		img.onclick = function() {
+			document.getElementById("chair").childNodes[0].onclick = null;
+			changePage("page-1", "clue-1");
+		};
+		
+	};
+	
+};
 
 
 function colorSelector(boxDiv){
